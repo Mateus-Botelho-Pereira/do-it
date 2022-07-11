@@ -35,16 +35,16 @@ export function AddPostIt(){
   async function handleSave() {
     let nextColor = '';
 
-    if(currentColor === 'one') {
-      nextColor = 'two';
-    } else if (currentColor === 'two') {
-      nextColor = 'three';
-    } else if (currentColor === 'three') {
-      nextColor = 'four';
-    } else if (currentColor === 'four') {
-      nextColor = 'five';
+    if(currentColor === '#FBAD4B') {
+      nextColor = '#EE68A3';
+    } else if (currentColor === '#EE68A3') {
+      nextColor = '#02ADE1';
+    } else if (currentColor === '#02ADE1') {
+      nextColor = '#E2E647';
+    } else if (currentColor === '#E2E647') {
+      nextColor = '#FFD81B';
     } else {
-      nextColor = 'one';
+      nextColor = '#FBAD4B';
     }
 
     const newPostIT = {
@@ -56,6 +56,7 @@ export function AddPostIt(){
     await AsyncStorage.setItem(
       POST_IT_LIST,
       JSON.stringify([...storagedList, newPostIT])
+      //JSON.stringify([])
     );
 
     navigation.navigate('Home');
