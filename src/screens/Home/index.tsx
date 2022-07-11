@@ -1,6 +1,6 @@
 import React from 'react';
 import { styles } from './styles';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { PostIt } from '../../components/PostIt';
@@ -20,8 +20,19 @@ export function Home(){
 
   return (
     <View style={styles.container}>
-      <PostIt/>
-      <PostIt/>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 80}}      
+      >
+        <PostIt/>
+        <PostIt/>
+        <PostIt/>
+        <PostIt/>
+        <PostIt/>
+        <PostIt/>
+        <PostIt/>
+        <PostIt/>
+      </ScrollView>
       <ButtonAdd
         onPress={handleAddPostIt}
       />
