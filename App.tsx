@@ -3,7 +3,7 @@ import { StatusBar, LogBox } from "react-native";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
-import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes";
 
 // Ignora alguns avisos de warning no terminal
 LogBox.ignoreLogs(['expo-app-loading is deprecated in favor of expo-splash-screen']);
@@ -28,7 +28,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Home />
+      <Routes />
     </>
   );
 }
