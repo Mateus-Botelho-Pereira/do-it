@@ -4,7 +4,7 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: theme.postItColors.rioDeJaneiro.quinto,
+    backgroundColor: theme.postItColors.rioDeJaneiro.five,
     color: theme.baseColors.black,
     fontFamily: theme.fonts.medium500,
     fontSize: 18,
