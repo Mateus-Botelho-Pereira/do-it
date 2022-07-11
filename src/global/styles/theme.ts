@@ -51,6 +51,11 @@ export const theme = {
     },
   },
 
+  baseColors: {
+    black: '#000000',
+    white: '#FFFFFF',
+  },
+
   fonts: {
     light300: 'Roboto_300Light',
     regular400: 'Roboto_400Regular',
