@@ -13,7 +13,7 @@ import uuid from "react-native-uuid";
 export function AddPostIt(){
   const navigation = useNavigation<PropsStack>();
   const [typedText, setTypedText] = useState('');
-  const [storagedList, setStoragedList] = useState([{}]);
+  const [storagedList, setStoragedList] = useState([]);
   const [currentColor, setCurrentColor] = useState('');
 
   useEffect(() => {

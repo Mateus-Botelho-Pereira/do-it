@@ -1,11 +1,21 @@
 import React from 'react';
 import { styles } from './styles';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-export function PostIt(){
+export type PostItProps = {
+  id: 'string',
+  content: 'string',
+  color: 'string',
+}
+
+type Props = TouchableOpacityProps & {
+  data: PostItProps;
+}
+
+export function PostIt({...rest}: Props){
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={[styles.container, {backgroundColor: 'gray'}]}>
       <Text style={styles.text}>Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
