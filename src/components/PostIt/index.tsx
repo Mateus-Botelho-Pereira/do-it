@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 export function PostIt(){
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT POST IT </Text>
+      <Text style={styles.text}>Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus Mateus </Text>
     </View>
   );
 }

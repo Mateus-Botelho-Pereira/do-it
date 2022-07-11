@@ -1,6 +1,6 @@
 import React from 'react';
 import { styles } from './styles';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { PostIt } from '../../components/PostIt';
 import { ButtonAdd } from '../../components/ButtonAdd';
 

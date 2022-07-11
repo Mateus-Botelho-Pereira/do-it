@@ -12,6 +12,8 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 16,
   },
   text: {
-
+    fontFamily: theme.fonts.medium500,
+    fontSize: 18,
+    lineHeight: 22,
   }
 });
