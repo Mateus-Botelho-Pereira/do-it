@@ -1,6 +1,6 @@
 import React from 'react';
 import { styles } from './styles';
-import { View, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { Octicons } from "@expo/vector-icons"
 import { theme } from '../../global/styles/theme';
 
