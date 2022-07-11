@@ -53,6 +53,7 @@ export const theme = {
 
   baseColors: {
     black: '#000000',
+    gray: '#1f1f1f',
     white: '#FFFFFF',
   },
 
