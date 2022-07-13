@@ -23,7 +23,6 @@ export function AddPostIt(){
 
   async function getData() {
     const storage = await AsyncStorage.getItem(POST_IT_LIST);
-    //console.log(storage)
 
     if (storage && (JSON.parse(storage).length != 0)) {
       setStoragedList(JSON.parse(storage));
@@ -67,7 +66,6 @@ export function AddPostIt(){
         <TextInput
           style={[styles.postIt, {backgroundColor: currentColor}]}
           multiline
-          maxLength={100}
           numberOfLines={10}
           autoCorrect={false}
           onChangeText={setTypedText}

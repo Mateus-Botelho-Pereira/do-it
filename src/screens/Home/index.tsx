@@ -5,7 +5,6 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { PostIt } from '../../components/PostIt';
 import { ButtonAdd } from '../../components/ButtonAdd';
-import { ButtonSettings } from '../../components/ButtonSettings';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Load } from "../../components/Load";
 import { POST_IT_LIST } from '../../configs/database';

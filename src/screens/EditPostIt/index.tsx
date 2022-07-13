@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
@@ -7,8 +9,9 @@ import { ButtonSave } from '../../components/ButtonSave';
 import { ButtonDelete } from '../../components/ButtonDelete';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { POST_IT_LIST } from '../../configs/database';
+import uuid from "react-native-uuid";
 import { PostItProps } from '../../components/PostIt';
-import { theme } from '../../global/styles/theme';
+
 
 type Params = {
   postItSelected: PostItProps;
@@ -20,16 +23,7 @@ export function EditPostIt(){
   const { postItSelected } = route.params as Params;
   
   const [typedText, setTypedText] = useState('');
-  const [currentColor, setCurrentColor] = useState('');
-
-  async function handleSave() {
-    //navigation.navigate('Home');
-    console.log(postItSelected)
-  }
-
-  function handleDelete(){
-    navigation.navigate('Home');  
-  }
+  const [currentColor, setCurrentColor] = useState('#FBAD4B');
 
   useEffect(() => {
     getParams();
@@ -44,12 +38,50 @@ export function EditPostIt(){
     setCurrentColor(code)
   }
 
+  async function handleSave() {
+    const storage: any = await AsyncStorage.getItem(POST_IT_LIST);
+    const list = JSON.parse(storage);
+    
+    const indexOfObject = list.findIndex((object: { id: string; }) => {
+      return object.id === String(postItSelected.id);
+    });
+
+    list[indexOfObject].content = typedText
+    list[indexOfObject].color = currentColor
+
+    await AsyncStorage.setItem(
+      POST_IT_LIST,
+      JSON.stringify(list)
+    );
+
+    navigation.navigate('Home');
+  }
+
+  async function handleDelete(){
+    const storage: any = await AsyncStorage.getItem(POST_IT_LIST);
+    const list = JSON.parse(storage);
+    
+    const indexOfObject = list.findIndex((object: { id: string; }) => {
+      return object.id === String(postItSelected.id);
+    });
+
+    if (indexOfObject !== -1) {
+      list.splice(indexOfObject, 1);
+    }
+
+    await AsyncStorage.setItem(
+      POST_IT_LIST,
+      JSON.stringify(list)
+    );
+
+    navigation.navigate('Home'); 
+  }
+
   return (
     <View style={styles.container}>
         <TextInput
           style={[styles.postIt, {backgroundColor: currentColor}]}
           multiline
-          maxLength={100}
           numberOfLines={10}
           autoCorrect={false}
           onChangeText={setTypedText}
