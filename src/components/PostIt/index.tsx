@@ -14,7 +14,10 @@ type Props = TouchableOpacityProps & {
 
 export function PostIt({data, ...rest}: Props){
   return (
-    <TouchableOpacity style={[styles.container, {backgroundColor: data.color}]}>
+    <TouchableOpacity 
+      style={[styles.container, {backgroundColor: data.color}]}
+      {...rest}
+    >
       <Text style={styles.text}>{data.content}</Text>
     </TouchableOpacity>
   );

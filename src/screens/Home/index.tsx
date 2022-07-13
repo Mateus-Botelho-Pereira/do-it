@@ -58,6 +58,8 @@ export function Home(){
             onPress={() => handleEditPostIt(item)}
           />
         )}
+        contentContainerStyle={{ paddingBottom: 80 }}
+        showsVerticalScrollIndicator={false}
         />
       }
       <ButtonAdd
