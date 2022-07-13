@@ -21,8 +21,10 @@ export function PostItCreator({...rest}: Props) {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
         <TextInput
           style={[styles.postIt, {backgroundColor: currentColor}]}
-          {...rest}
-          // BOTAR O TEXTO AQUI E A COR
+          multiline
+          maxLength={100}
+          numberOfLines={10}
+          autoCorrect={false}
         />
         <View style={styles.colorSelector}>
           <View style={styles.colorRow}>

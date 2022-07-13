@@ -32,8 +32,4 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 6,
   },
-  color1: {
-    backgroundColor: 'red',
-  },
-
 });

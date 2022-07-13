@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
-import { View } from 'react-native';
-import { PostItCreator } from '../../components/PostItCreator';
+import { theme } from '../../global/styles/theme';
+import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { ButtonSave } from '../../components/ButtonSave';
@@ -13,8 +13,9 @@ import uuid from "react-native-uuid";
 export function AddPostIt(){
   const navigation = useNavigation<PropsStack>();
   const [typedText, setTypedText] = useState('');
+  const [currentColor, setCurrentColor] = useState('#FBAD4B');
+
   const [storagedList, setStoragedList] = useState([]);
-  const [currentColor, setCurrentColor] = useState('');
 
   useEffect(() => {
     getData();
@@ -26,31 +27,22 @@ export function AddPostIt(){
 
     if (storage && (JSON.parse(storage).length != 0)) {
       setStoragedList(JSON.parse(storage));
-      setCurrentColor(JSON.parse(storage)[JSON.parse(storage).length - 1].color);
     } else {
       setStoragedList([]);
     }
   }
 
   async function handleSave() {
-    let nextColor = '';
 
-    if(currentColor === '#FBAD4B') {
-      nextColor = '#EE68A3';
-    } else if (currentColor === '#EE68A3') {
-      nextColor = '#02ADE1';
-    } else if (currentColor === '#02ADE1') {
-      nextColor = '#E2E647';
-    } else if (currentColor === '#E2E647') {
-      nextColor = '#FFD81B';
-    } else {
-      nextColor = '#FBAD4B';
+    if(!typedText) {
+      Alert.alert('Digite algo antes de salvar')
+      return
     }
 
     const newPostIT = {
       id: uuid.v4(),
       content: `${typedText}`,
-      color: `${nextColor}`
+      color: `${currentColor}`
     };
 
     await AsyncStorage.setItem(
@@ -66,15 +58,59 @@ export function AddPostIt(){
     navigation.navigate('Home');  
   }
 
+  function getColor(code: string) {
+    setCurrentColor(code)
+  }
+
   return (
     <View style={styles.container}>
-      <PostItCreator
-        multiline
-        maxLength={100}
-        numberOfLines={10}
-        autoCorrect={false}
-        onChangeText={setTypedText}
-      />
+        <TextInput
+          style={[styles.postIt, {backgroundColor: currentColor}]}
+          multiline
+          maxLength={100}
+          numberOfLines={10}
+          autoCorrect={false}
+          onChangeText={setTypedText}
+          value={typedText}
+        />
+        <View style={styles.colorSelector}>
+          <View style={styles.colorRow}>
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color1}]}
+              onPress={() => getColor('#FBAD4B')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color2}]}
+              onPress={() => getColor('#EE68A3')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color3}]}
+              onPress={() => getColor('#02ADE1')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color4}]}
+              onPress={() => getColor('#E2E647')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color5}]}
+              onPress={() => getColor('#FFD81B')}
+            />                              
+          </View>
+
+          <View style={styles.colorRow}>
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color6}]}
+              onPress={() => getColor('#70CBC2')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color7}]}
+              onPress={() => getColor('#C4E069')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color8}]}
+              onPress={() => getColor('#F3778F')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color9}]}
+              onPress={() => getColor('#F49EBB')}
+            />
+            <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color10}]}
+              onPress={() => getColor('#E75337')}
+            />
+          </View>
+        </View>
+
       <ButtonSave 
         onPress={handleSave}
       />

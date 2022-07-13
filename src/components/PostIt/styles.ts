@@ -4,7 +4,6 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    //backgroundColor: theme.postItColors.rioDeJaneiro.one,
     marginBottom: 24,
     padding: 12,
     borderColor: 'black',

@@ -4,7 +4,7 @@ export type RootStackParamList = {
   Home: undefined;
   AppSettings: undefined;
   AddPostIt: undefined;
-  EditPostIt: undefined;
+  EditPostIt: { postItSelected: any };
 };
 
 export type PropsStack = NativeStackNavigationProp<RootStackParamList>;

@@ -21,8 +21,7 @@ export function Home(){
   }
 
   function handleEditPostIt(postItSelected: PostItProps) {
-    //navigation.navigate('EditPostIt');
-    //console.log(postItSelected)
+    navigation.navigate('EditPostIt', {postItSelected});
   }
 
   function handleAppSettings() {
