@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
 import { View } from 'react-native';
-import { TextArea } from '../../components/TextArea';
+import { PostItCreator } from '../../components/PostItCreator';
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { ButtonSave } from '../../components/ButtonSave';
@@ -22,7 +22,7 @@ export function AddPostIt(){
 
   async function getData() {
     const storage = await AsyncStorage.getItem(POST_IT_LIST);
-    console.log(storage)
+    //console.log(storage)
 
     if (storage && (JSON.parse(storage).length != 0)) {
       setStoragedList(JSON.parse(storage));
@@ -68,7 +68,7 @@ export function AddPostIt(){
 
   return (
     <View style={styles.container}>
-      <TextArea
+      <PostItCreator
         multiline
         maxLength={100}
         numberOfLines={10}

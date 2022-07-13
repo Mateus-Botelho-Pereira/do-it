@@ -1,5 +1,16 @@
 export const theme = {
   postItColors: {
+    color1: '#FBAD4B',
+    color2: '#EE68A3',
+    color3: '#02ADE1',
+    color4: '#E2E647',
+    color5: '#FFD81B',
+    color6: '#70CBC2',
+    color7: '#C4E069',
+    color8: '#F3778F',
+    color9: '#F49EBB',
+    color10: '#E75337',
+
     rioDeJaneiro:{
       one: '#FBAD4B',
       two: '#EE68A3',

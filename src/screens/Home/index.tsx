@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { styles } from './styles';
-import { View, ScrollView, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { PostIt } from '../../components/PostIt';
@@ -21,7 +21,8 @@ export function Home(){
   }
 
   function handleEditPostIt(postItSelected: PostItProps) {
-    navigation.navigate('EditPostIt');
+    //navigation.navigate('EditPostIt');
+    //console.log(postItSelected)
   }
 
   function handleAppSettings() {
@@ -36,7 +37,7 @@ export function Home(){
     const storage = await AsyncStorage.getItem(POST_IT_LIST);
     const postItArray: PostItProps[] = storage ? JSON.parse(storage) : [];
 
-    console.log(storage)
+    //console.log(storage)
 
     setStoragedList(postItArray);
 
@@ -64,9 +65,6 @@ export function Home(){
       }
       <ButtonAdd
         onPress={handleAddPostIt}
-      />
-      <ButtonSettings
-        onPress={handleAppSettings}
       />
     </View>
   );
