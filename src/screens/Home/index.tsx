@@ -9,6 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Load } from "../../components/Load";
 import { POST_IT_LIST } from '../../configs/database';
 import { PostItProps } from '../../components/PostIt';
+import { Background } from '../../components/Background';
 
 export function Home(){
   const navigation = useNavigation<PropsStack>();
@@ -22,11 +23,7 @@ export function Home(){
   function handleEditPostIt(postItSelected: PostItProps) {
     navigation.navigate('EditPostIt', {postItSelected});
   }
-
-  function handleAppSettings() {
-    navigation.navigate('AppSettings');
-  }
-
+  
   useFocusEffect(useCallback(() => {
     loadPostIts();
   },[]));
@@ -43,27 +40,29 @@ export function Home(){
   }
 
   return (
-    <View style={styles.container}>
-      {
-        loading ? 
-        <Load />
-        :
-        <FlatList 
-        data={storagedList}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <PostIt 
-            data={item}
-            onPress={() => handleEditPostIt(item)}
+    <Background>
+      <View style={styles.container}>
+        {
+          loading ? 
+          <Load />
+          :
+          <FlatList 
+          data={storagedList}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <PostIt 
+              data={item}
+              onPress={() => handleEditPostIt(item)}
+            />
+          )}
+          contentContainerStyle={{ paddingBottom: 80 }}
+          showsVerticalScrollIndicator={false}
           />
-        )}
-        contentContainerStyle={{ paddingBottom: 80 }}
-        showsVerticalScrollIndicator={false}
+        }
+        <ButtonAdd
+          onPress={handleAddPostIt}
         />
-      }
-      <ButtonAdd
-        onPress={handleAddPostIt}
-      />
-    </View>
+      </View>
+    </Background>
   );
 }

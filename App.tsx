@@ -4,6 +4,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import { Routes } from "./src/routes";
+import { Background } from "./src/components/Background"
 
 // Ignora alguns avisos de warning no terminal
 LogBox.ignoreLogs(['expo-app-loading is deprecated in favor of expo-splash-screen']);
@@ -22,13 +23,13 @@ export default function App() {
   }
 
   return (
-    <>
+    <Background>
       <StatusBar
         barStyle={"dark-content"}
         backgroundColor="transparent"
         translucent
       />
       <Routes />
-    </>
+    </Background>
   );
 }

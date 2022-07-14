@@ -5,7 +5,6 @@ import { RootStackParamList } from "./Models";
 
 
 import { Home } from "../screens/Home";
-import { AppSettings } from "../screens/AppSettings";
 import { AddPostIt } from "../screens/AddPostIt";
 import { EditPostIt } from "../screens/EditPostIt";
 
@@ -21,10 +20,6 @@ export function AppRoutes() {
       <Screen 
         name="Home" 
         component={Home} 
-      />
-      <Screen 
-        name="AppSettings" 
-        component={AppSettings} 
       />
       <Screen 
         name="AddPostIt" 
