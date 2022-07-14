@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { styles } from './styles';
-import { View, FlatList } from 'react-native';
+import { View, Image, Text, FlatList } from 'react-native';
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { PostIt } from '../../components/PostIt';
@@ -10,6 +10,7 @@ import { Load } from "../../components/Load";
 import { POST_IT_LIST } from '../../configs/database';
 import { PostItProps } from '../../components/PostIt';
 import { Background } from '../../components/Background';
+import postinho from "../../assets/postinho.png";
 
 export function Home(){
   const navigation = useNavigation<PropsStack>();
@@ -32,8 +33,6 @@ export function Home(){
     const storage = await AsyncStorage.getItem(POST_IT_LIST);
     const postItArray: PostItProps[] = storage ? JSON.parse(storage) : [];
 
-    //console.log(storage)
-
     setStoragedList(postItArray);
 
     setLoading(false);
@@ -42,6 +41,20 @@ export function Home(){
   return (
     <Background>
       <View style={styles.container}>
+        {
+            storagedList.length === 0 ?
+            <View style={styles.newPostContainer}>
+              <Image
+                source={postinho}
+                style={styles.newPostImage}
+              />
+              <Text  style={styles.newPostText}>
+                ADICIONE UM NOVO POST IT
+              </Text>
+            </View>
+            :
+            <></>
+        }
         {
           loading ? 
           <Load />

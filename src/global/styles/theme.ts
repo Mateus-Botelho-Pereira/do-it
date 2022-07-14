@@ -11,19 +11,6 @@ export const theme = {
     color9: '#EC1979',
     color10: '#EE1E25',
   },
-  
-  teste: {
-    color1: '#FBA519',
-    color2: '#F3EB1F',
-    color3: '#9CCA3D',
-    color4: '#71C055',
-    color5: '#40B8EA',
-    color6: '#446FB7',
-    color7: '#5B53A3',
-    color8: '#87519E',
-    color9: '#EC1979',
-    color10: '#EE1E25',
-  },
 
   baseColors: {
     black: '#000000',
