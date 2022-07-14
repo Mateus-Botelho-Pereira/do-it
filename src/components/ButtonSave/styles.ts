@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     position: 'absolute',
     bottom: 20,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    borderColor: theme.baseColors.black,
+    borderWidth: 2,
   }
 });

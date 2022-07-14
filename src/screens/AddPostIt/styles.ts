@@ -19,10 +19,9 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 16,
     borderColor: 'black',
     borderWidth: 2,
-    marginBottom: 24,
   },
   colorSelector: {
-    padding: 12,
+    padding: 10,
   },
   colorRow: {
     flexDirection: 'row',
