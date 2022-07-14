@@ -5,7 +5,7 @@ import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { ButtonSave } from '../../components/ButtonSave';
-import { ButtonDelete } from '../../components/ButtonDelete';
+import { ButtonBack } from '../../components/ButtonBack';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { POST_IT_LIST } from '../../configs/database';
 import uuid from "react-native-uuid";
@@ -53,8 +53,8 @@ export function AddPostIt(){
     navigation.navigate('Home');
   }
 
-  function handleDelete(){
-    navigation.navigate('Home');  
+  function handleBack() {
+    navigation.navigate('Home');    
   }
 
   function getColor(code: string) {
@@ -112,8 +112,8 @@ export function AddPostIt(){
       <ButtonSave 
         onPress={handleSave}
       />
-      <ButtonDelete
-        onPress={handleDelete}      
+      <ButtonBack
+        onPress={handleBack}      
       />
     </View>
   );

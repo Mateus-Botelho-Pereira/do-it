@@ -7,6 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { ButtonSave } from '../../components/ButtonSave';
 import { ButtonDelete } from '../../components/ButtonDelete';
+import { ButtonBack } from '../../components/ButtonBack';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { POST_IT_LIST } from '../../configs/database';
 import uuid from "react-native-uuid";
@@ -77,6 +78,10 @@ export function EditPostIt(){
     navigation.navigate('Home'); 
   }
 
+  function handleBack() {
+    navigation.navigate('Home');    
+  }
+
   return (
     <View style={styles.container}>
         <TextInput
@@ -129,6 +134,9 @@ export function EditPostIt(){
         onPress={handleSave}
       />
       <ButtonDelete
+        onPress={handleDelete}      
+      />
+      <ButtonBack
         onPress={handleDelete}      
       />
     </View>
