@@ -76,36 +76,46 @@ export function AddPostIt(){
           <View style={styles.colorSelector}>
             <View style={styles.colorRow}>
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color1}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#FBA519')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color2}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#F3EB1F')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color3}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#9CCA3D')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color4}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#71C055')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color5}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#40B8EA')}
               />                              
             </View>
 
             <View style={styles.colorRow}>
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color6}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#446FB7')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color7}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#5B53A3')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color8}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#87519E')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color9}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#EC1979')}
               />
               <TouchableOpacity style={[styles.colorButton, {backgroundColor: theme.postItColors.color10}]}
+                activeOpacity={0.7}
                 onPress={() => getColor('#EE1E25')}
               />
             </View>

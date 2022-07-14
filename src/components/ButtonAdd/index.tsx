@@ -8,6 +8,7 @@ export function ButtonAdd({...rest} : TouchableOpacityProps){
   return(
     <TouchableOpacity 
       style={styles.container}
+      activeOpacity={0.7}
       {...rest}
     >
       <MaterialCommunityIcons 

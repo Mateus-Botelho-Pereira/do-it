@@ -11,6 +11,7 @@ export function ButtonSave({...rest} : TouchableOpacityProps){
       style={styles.container}
     >
       <TouchableOpacity 
+        activeOpacity={0.7}
         {...rest}
       >
         <Fontisto 

@@ -10,7 +10,8 @@ export function ButtonBack({...rest} : TouchableOpacityProps){
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <TouchableOpacity 
+      <TouchableOpacity
+        activeOpacity={0.7}
         {...rest}
       >
         <Ionicons 

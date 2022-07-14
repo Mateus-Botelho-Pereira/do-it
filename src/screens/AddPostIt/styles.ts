@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   colorRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   colorButton: {
     width: 48,

@@ -16,6 +16,7 @@ export function PostIt({data, ...rest}: Props){
   return (
     <TouchableOpacity 
       style={[styles.container, {backgroundColor: data.color}]}
+      activeOpacity={0.7}
       {...rest}
     >
       <Text style={styles.text}>{data.content}</Text>
