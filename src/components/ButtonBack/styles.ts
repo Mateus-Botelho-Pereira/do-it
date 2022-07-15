@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: 'absolute',
-    bottom: 28,
+    bottom: 24,
     left: 24,
     alignSelf: 'center'
   }

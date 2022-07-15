@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: 'absolute',
-    bottom: 20,
+    bottom: 22,
     alignSelf: 'center',
     borderColor: theme.baseColors.black,
     borderWidth: 2,

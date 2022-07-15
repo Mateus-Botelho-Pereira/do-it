@@ -1,25 +1,21 @@
 import React from 'react';
 import { styles } from './styles';
-import { View, TouchableOpacity, TouchableOpacityProps, KeyboardAvoidingView, Platform } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { Fontisto } from "@expo/vector-icons"
 import { theme } from '../../global/styles/theme';
 
 export function ButtonSave({...rest} : TouchableOpacityProps){
   return(
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    <TouchableOpacity
       style={styles.container}
+      activeOpacity={0.7}
+      {...rest}
     >
-      <TouchableOpacity 
-        activeOpacity={0.7}
-        {...rest}
-      >
-        <Fontisto 
-          name="save"
-          color={theme.baseColors.black}
-          size={32}
-        />
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+      <Fontisto 
+        name="save"
+        color={theme.baseColors.black}
+        size={32}
+      />
+    </TouchableOpacity>
   );
 }

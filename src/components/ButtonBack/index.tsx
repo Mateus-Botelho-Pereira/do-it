@@ -1,25 +1,21 @@
 import React from 'react';
 import { styles } from './styles';
-import { TouchableOpacity, TouchableOpacityProps, KeyboardAvoidingView, Platform } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { Ionicons } from "@expo/vector-icons"
 import { theme } from '../../global/styles/theme';
 
 export function ButtonBack({...rest} : TouchableOpacityProps){
   return(
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    <TouchableOpacity
       style={styles.container}
+      activeOpacity={0.7}
+      {...rest}
     >
-      <TouchableOpacity
-        activeOpacity={0.7}
-        {...rest}
-      >
-        <Ionicons 
-          name="chevron-back-outline"
-          color={theme.baseColors.white}
-          size={24}
-        />
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+      <Ionicons 
+        name="chevron-back-outline"
+        color={theme.baseColors.white}
+        size={24}
+      />
+    </TouchableOpacity>
   );
 }

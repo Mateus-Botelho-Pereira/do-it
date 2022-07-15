@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 24,
-    marginTop: getStatusBarHeight() + 26,
+    marginTop: getStatusBarHeight() + 10,
   },
   postIt: {
     height: 250,
