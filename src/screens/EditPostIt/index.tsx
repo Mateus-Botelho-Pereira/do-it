@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
-import { View, TextInput, TouchableOpacity } from 'react-native';
+import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { PropsStack } from "../../routes/Models";
 import { ButtonSave } from '../../components/ButtonSave';
@@ -39,6 +39,12 @@ export function EditPostIt(){
   }
 
   async function handleSave() {
+    
+    if(!typedText) {
+      Alert.alert('Digite algo antes de salvar')
+      return
+    }
+
     const storage: any = await AsyncStorage.getItem(POST_IT_LIST);
     const list = JSON.parse(storage);
     
